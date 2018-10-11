@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <CheckBoxPreference
+        android:defaultValue="true"
+        android:key="pref_sync"
+        android:summary="@string/sync_pref_summery"
+        android:title="@string/sync_pref" />
+
+    <ListPreference
+        android:defaultValue="@string/pref_syncConnectionType_default_value"
+        android:dependency="pref_sync"
+        android:entries="@array/pref_syncConnectionType_entries"
+        android:entryValues="@array/pref_syncConnectionType_values"
+        android:key="pref_sync_connection_type"
+        android:summary="@string/pref_syncConnectionType_summary"
+        android:title="@string/pref_syncConnectionType" />
+
+    <PreferenceCategory android:title="@string/storage_group_title">
+
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="pref_delete_old_message"
+            android:summary="@string/delete_message_summary"
+            android:title="@string/delete_message_title" />
+
+        <ListPreference
+            android:defaultValue="500"
+            android:dependency="pref_delete_old_message"
+            android:dialogTitle="Text message limit"
+            android:entries="@array/message_limit_entries"
+            android:entryValues="@array/message_limit_entries"
+            android:key="sms_delete_limit"
+            android:summary="500 messages per conversation"
+            android:title="Text messages limit" />
+        <ListPreference
+            android:defaultValue="500"
+            android:dependency="pref_delete_old_message"
+            android:dialogTitle="Multimedia message limit"
+            android:entries="@array/message_limit_entries"
+            android:entryValues="@array/message_limit_entries"
+            android:key="mms_delete_limit"
+            android:summary="500 messages per conversation"
+            android:title="Multimedia message limit" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/text_message_group_title">
+
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="pref_delivery_reports_sms"
+            android:summary="@string/delivery_reports_summery"
+            android:title="@string/delivery_reports_title" />
+        <Preference
+            android:dependency="pref_delivery_reports_sms"
+            android:summary="@string/sim_card_message_summary"
+            android:title="@string/sim_card_message_title" />
+    </PreferenceCategory>
+
+
+    <PreferenceCategory android:title="@string/text_multimedia_message_group_title">
+
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="pref_delivery_reports_mms"
+            android:summary="@string/delivery_reports_summery"
+            android:title="@string/delivery_reports_title" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:summary="The Horror"
+        android:title="@string/phone_ringtone_title">
+
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="pref_vibrate_when_ring"
+            android:title="@string/vibrate_ringing_title" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/other_callsettings_title_group">
+
+        <PreferenceScreen
+            android:key="pref_voice_mail"
+            android:persistent="false"
+            android:title="@string/voicemail_title">
+
+            <Preference
+                android:summary="@string/service_summary"
+                android:title="@string/service_title" />
+            <Preference android:title="@string/setup_title" />
+            <Preference android:title="@string/ringtone_title" />
+            <Preference
+                android:summary="@string/vibrate_summary"
+                android:title="Vibrate Title" />
+        </PreferenceScreen>
+    </PreferenceCategory>
+
+
+</PreferenceScreen>
+
+
